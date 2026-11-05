@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introduction to Noida Institute of Engineering and Technology (NIET): courses, placements, seat matrix and admissions.">
+    <title>Introduction to NIET</title>
+
+    <style>
+        /* ---------- 1. CSS VARIABLES: change a colour once, it updates everywhere ---------- */
+        :root {
+            --navy: #12355b;
+            --sky: #eaf5ff;
+            --accent: #f2a900;
+            --text: #1d2733;
+            --white: #ffffff;
+        }
+
+        /* ---------- 2. RESET: put this at the TOP so it doesn't override later rules ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; /* width includes padding + border: much easier maths */
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--sky);
+        }
+
+        img { max-width: 100%; height: auto; } /* images never overflow their container */
+
+        /* ---------- 3. HEADER + NAV (Flexbox replaces margin-left hacks) ---------- */
+        header {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 16px 24px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand h1 { font-size: 1.6rem; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            padding: 4px 2px;
+            border-bottom: 2px solid transparent;
+        }
+
+        /* pseudo-classes: styles that react to the user */
+        nav a:hover,
+        nav a:focus-visible {
+            border-bottom-color: var(--accent);
+        }
+
+        /* ---------- 4. LAYOUT ---------- */
+        main {
+            max-width: 960px;          /* readable line length */
+            margin: 0 auto;            /* auto side margins = centred */
+            padding: 24px 16px;
+        }
+
+        section {
+            background-color: var(--white);
+            border-left: 6px solid var(--accent);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        ul, ol { padding-left: 24px; }
+        li { margin-bottom: 8px; }
+
+        .intro p { font-size: 1.05rem; }
+
+        figure { margin: 16px 0 0; }
+        figure img { border-radius: 8px; display: block; margin: 0 auto; }
+        figcaption { text-align: center; font-size: 0.9rem; color: #555; margin-top: 6px; }
+
+        /* ---------- 5. TABLE ---------- */
+        table {
+            width: 100%;
+            max-width: 480px;
+            border-collapse: collapse;   /* removes the double borders */
+        }
+
+        caption { text-align: left; font-weight: bold; margin-bottom: 8px; }
+
+        th, td {
+            border: 1px solid #b8c7d9;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        thead th { background-color: var(--navy); color: var(--white); }
+        tbody tr:nth-child(even) { background-color: var(--sky); } /* zebra stripes */
+
+        /* ---------- 6. VISION / MISSION side by side with CSS Grid ---------- */
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .two-columns section { margin-bottom: 0; }
+
+        blockquote {
+            font-style: italic;
+            border-left: 4px solid var(--navy);
+            padding-left: 12px;
+        }
+
+        /* ---------- 7. LINKS + FOOTER ---------- */
+        a { color: var(--navy); }
+
+        .button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--text);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover { background-color: #ffc933; }
+
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 20px 16px;
+        }
+
+        footer a { color: var(--accent); }
+
+        /* ---------- 8. RESPONSIVE: rules that only apply on small screens ---------- */
+        @media (max-width: 600px) {
+            header { flex-direction: column; align-items: flex-start; }
+            section { padding: 16px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER: site title and navigation -->
+    <header>
+        <div class="brand">
+            <img src="niet.png" alt="NIET logo" width="50" height="50">
+            <h1>Introduction to NIET</h1>
+        </div>
+
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#infrastructure">Infrastructure</a></li>
+                <li><a href="#placements">Placements</a></li>
+                <li><a href="#vision">Vision &amp; Mission</a></li>
+                <li><a href="#admissions">Admissions</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN: the unique content of this page -->
+    <main>
+
+        <section class="intro" id="about">
+            <h2>About NIET</h2>
+            <p>
+                Noida Institute of Engineering and Technology (NIET), located in Greater Noida,
+                Uttar Pradesh, is a premier self-financed engineering and management institute.
+                Established in 2001 by the City Educational &amp; Social Welfare Society, it is
+                recognized as the first private institute in Uttar Pradesh to be granted Autonomous
+                status by the University Grants Commission (UGC). The institute is spread across a
+                lush 23-acre campus in the regional educational hub of Knowledge Park.
+            </p>
+
+            <!-- figure + figcaption: an image with its caption -->
+            <figure>
+                <a href="https://niet.co.in/" target="_blank" rel="noopener">
+                    <img src="https://www.niet.co.in/uploads/images/67726cb02c3781735552176.webp"
+                         alt="NIET campus" width="500" height="300">
+                </a>
+                <figcaption>Click the image to visit the official NIET website.</figcaption>
+            </figure>
+        </section>
+
+        <section id="credentials">
+            <h2>Credentials</h2>
+            <p>NIET stands out in the Delhi-NCR region due to its strong governmental and academic credentials:</p>
+            <ul>
+                <li><strong>Accreditation:</strong> Re-accredited with a NAAC A Grade (Score: 3.23). Its core programs (including B.Tech CSE, ECE, ME, IT, Biotechnology, B.Pharm, MBA, and MCA) are accredited by the National Board of Accreditation (NBA).</li>
+                <li><strong>Affiliation:</strong> While it designs its own industry-focused curriculum due to its autonomous status, the institute remains affiliated with Dr. A.P.J. Abdul Kalam Technical University (AKTU), Lucknow.</li>
+                <li><strong>National Rankings:</strong> Consistently ranked by the National Institutional Ranking Framework (NIRF), routinely placing in the 101–150 rank band for Engineering and securing a top 40 spot nationally for its Pharmacy program.</li>
+            </ul>
+        </section>
+
+        <section id="courses">
+            <h2>Courses</h2>
+            <p>NIET offers a wide range of undergraduate and postgraduate courses:</p>
+            <ul>
+                <li><strong>Engineering (B.Tech &amp; M.Tech):</strong> Covers traditional streams along with modern, high-demand specializations like Artificial Intelligence &amp; Machine Learning (AI/ML), Data Science, Cyber Security, Cloud Computing, and Internet of Things (IoT).</li>
+                <li><strong>Computer Applications &amp; Management:</strong> Offers BCA, MCA, BBA, MBA, and PGDM programs.</li>
+                <li><strong>Pharmacy:</strong> Delivers B.Pharm and M.Pharm degrees.</li>
+                <li><strong>Unique Curriculums:</strong> The institute hosts an International Twinning Program for global exposure and collaborates directly with corporations, such as a specialized B.Tech in Computer Science and Business Systems (CSBS) co-designed with Tata Consultancy Services (TCS).</li>
+            </ul>
+        </section>
+
+        <section id="infrastructure">
+            <h2>Infrastructure &amp; Corporate Tie-ups</h2>
+            <p>
+                The campus is equipped with specialized Centers of Excellence and Innovation Labs
+                partnered with global tech giants. These include tie-ups with Mercedes-Benz (ADAM Lab),
+                AWS, Cisco, Capgemini, HCLTech, and Oracle. It also features smart classrooms, a
+                14,000 sq. ft. digital library, separate on-campus hostels, modern sports fields,
+                and a student innovation incubation ecosystem.
+            </p>
+        </section>
+
+        <section id="placements">
+            <h2>Placements</h2>
+            <ul>
+                <li><strong>Average Package:</strong> ~₹6.00 LPA</li>
+                <li><strong>Highest Package:</strong> Ranges up to ₹44 LPA to ₹51 LPA nationally.</li>
+                <li><strong>Top Recruiters:</strong> Regular campus visits from marquee companies including Microsoft, Amazon, Capgemini, TCS, Wipro, and Cognizant.</li>
+            </ul>
+        </section>
+
+        <!-- Vision and Mission sit side by side (see .two-columns in the CSS) -->
+        <div class="two-columns" id="vision">
+            <section>
+                <h2>Vision</h2>
+                <blockquote>
+                    To be an institute of academic excellence in digital arena with global outreach
+                    delivering socially responsible professionals to become a university and an
+                    entrepreneurial hub.
+                </blockquote>
+            </section>
+
+            <section>
+                <h2>Mission</h2>
+                <ul>
+                    <li>To impart quality education and hone students' skills and competencies making them future ready.</li>
+                    <li>To foster an ecosystem for research, product development, innovation, incubation, and entrepreneurship.</li>
+                    <li>To instill values and ethics to produce socially responsible technocrats addressing global problems.</li>
+                    <li>To develop an environment for sharing and exchange of resources globally for lifelong learning.</li>
+                </ul>
+            </section>
+        </div>
+
+        <section id="seat-matrix">
+            <h2>Seat Matrix</h2>
+            <table>
+                <caption>Approximate yearly intake by course</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Course</th>
+                        <th scope="col">Intake</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>B.Tech</td><td>Approx 1800 to 2400</td></tr>
+                    <tr><td>M.Tech</td><td>Approx 200 to 300</td></tr>
+                    <tr><td>B.Pharm</td><td>Approx 100 to 150</td></tr>
+                    <tr><td>M.Pharm</td><td>Approx 50 to 100</td></tr>
+                    <tr><td>BCA</td><td>Approx 100 to 150</td></tr>
+                    <tr><td>MCA</td><td>Approx 100 to 150</td></tr>
+                    <tr><td>BBA</td><td>Approx 100 to 150</td></tr>
+                    <tr><td>MBA</td><td>Approx 100 to 150</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="admissions">
+            <h2>Admission</h2>
+            <ol>
+                <li><strong>B.Tech:</strong> UPTAC &amp; JEE Main (85% seats), Direct Admission (15% seats)</li>
+                <li><strong>M.Tech:</strong> GATE (85% seats), Direct Admission (15% seats)</li>
+                <li><strong>B.Pharm:</strong> JEE Main (85% seats), Direct Admission (15% seats)</li>
+                <li><strong>M.Pharm:</strong> GATE (85% seats), Direct Admission (15% seats)</li>
+                <li><strong>BCA:</strong> JEE Main (85% seats), Direct Admission (15% seats)</li>
+                <li><strong>MCA:</strong> GATE (85% seats), Direct Admission (15% seats)</li>
+            </ol>
+
+            <h3>Fee Structure</h3>
+            <img src="fee_structure.png" alt="NIET fee structure table" width="300" height="300">
+        </section>
+
+    </main>
+
+    <!-- FOOTER: contact info and closing line -->
+    <footer>
+        <p>For more information, contact the Admission Office or visit the official website.</p>
+        <a class="button" href="https://niet.co.in/" target="_blank" rel="noopener">Visit niet.co.in</a>
+        <p><small>Thank you for visiting.</small></p>
+    </footer>
+
+</body>
+</html>
